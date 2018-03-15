@@ -1,0 +1,73 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Spaceship_1",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.15,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "728218f6-bc6a-4b1c-9458-4b1f7a533e1a"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "2b8852b6-957e-4ec6-b25e-f95923a357ec"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "9211c5cd-7cab-471d-a3b1-36a2e8013284"
+            }
+          },
+          {
+            "frame": 0.05,
+            "value": {
+              "__uuid__": "acba399e-f303-45f3-a040-c0b0be30be76"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "2f69b224-c1b4-47b3-8c97-0c4c4f23c9df"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "b392c670-2302-4498-b143-5c810c2fde67"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "8b030dca-c509-45b8-8631-c5ae9782da53"
+            }
+          },
+          {
+            "frame": 0.11666666666666667,
+            "value": {
+              "__uuid__": "8e652760-6d9c-47f6-9478-0ee70e59b0b0"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "0545bd03-7354-487d-a278-2614ce8d0151"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
