@@ -1,33 +1,26 @@
 import Input from './Lib/Input';
 import Sync from './Lib/Sync';
+import Spaceship from "./Spaceship";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 @cc._decorator.requireComponent(cc.RigidBody)
+@cc._decorator.requireComponent(Spaceship)
 export default class Player extends cc.Component {
 
-    @property
-    speed: number = 300;
-
-    @property(cc.Prefab)
-    bullet: cc.Prefab = null;
-
-    rigidbody: cc.RigidBody = null;
+    spaceship: Spaceship;
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.rigidbody = this.getComponent<cc.RigidBody>(cc.RigidBody);
+        this.spaceship = this.getComponent<Spaceship>(Spaceship);
     }
 
     async start() {
         while (true) {
-            let bullet = cc.instantiate(this.bullet);
-            this.node.parent.addChild(bullet);
-            bullet.position = this.node.position;
-            bullet.setLocalZOrder(this.node.zIndex - 1);
-            await Sync.wait(500);
+            this.spaceship.Shot(this.node);
+            await Sync.wait(this.spaceship.shotDelay);
         }
     }
 
@@ -35,6 +28,6 @@ export default class Player extends cc.Component {
         let x: number = Input.GetAxisRawHorizon();
         let y: number = Input.GetAxisRawVertical();
         let direction: cc.Vec2 = new cc.Vec2(x, y).normalize();
-        this.rigidbody.linearVelocity = direction.mulSelf(this.speed);
+        this.spaceship.Move(direction);
     }
 }
