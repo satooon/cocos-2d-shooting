@@ -4,6 +4,7 @@ import Sync from './Lib/Sync';
 const {ccclass, property} = cc._decorator;
 
 @ccclass
+@cc._decorator.requireComponent(cc.RigidBody)
 export default class Player extends cc.Component {
 
     @property

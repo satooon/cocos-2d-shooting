@@ -1,6 +1,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
+@cc._decorator.requireComponent(cc.RigidBody)
 export default class Bullet extends cc.Component {
 
     @property
