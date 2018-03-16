@@ -10,6 +10,8 @@ export default class Spaceship extends cc.Component {
     shotDelay: number = 500;
     @property(cc.Prefab)
     bullet: cc.Prefab = null;
+    @property
+    canShot: boolean = false;
 
     public Shot(origin: cc.Node) {
         let bullet = cc.instantiate(this.bullet);

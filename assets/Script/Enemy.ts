@@ -18,6 +18,10 @@ export default class Enemy extends cc.Component {
     async start() {
         this.spaceship.Move(new cc.Vec2(0, -1));
 
+        if (!this.spaceship.canShot) {
+            return;
+        }
+
         let self = this;
         while (true) {
             this.node.children.forEach((shotPosition: cc.Node) => {
