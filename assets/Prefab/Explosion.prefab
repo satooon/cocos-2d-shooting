@@ -22,10 +22,13 @@
       },
       {
         "__id__": 3
+      },
+      {
+        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 5
     },
     "_id": "",
     "_opacity": 255,
@@ -108,6 +111,17 @@
       }
     ],
     "playOnLoad": true
+  },
+  {
+    "__type__": "90828hQK9ZM3bTG8Ixc9Z05",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "label": null,
+    "text": "hello"
   },
   {
     "__type__": "cc.PrefabInfo",
