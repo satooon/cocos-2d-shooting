@@ -13,9 +13,9 @@ export default class Spaceship extends cc.Component {
 
     public Shot(origin: cc.Node) {
         let bullet = cc.instantiate(this.bullet);
-        bullet.position = origin.position;
-        bullet.setLocalZOrder(origin.zIndex - 1);
-        this.node.parent.addChild(bullet);
+        origin.addChild(bullet);
+        bullet.position = cc.Vec2.ZERO;
+        bullet.rotation = origin.rotation;
     }
 
     public Move(direction: cc.Vec2) {

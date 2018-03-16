@@ -1,12 +1,11 @@
-import Input from './Lib/Input';
-import Sync from './Lib/Sync';
 import Spaceship from "./Spaceship";
+import Sync from "./Lib/Sync";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 @cc._decorator.requireComponent(Spaceship)
-export default class Player extends cc.Component {
+export default class Enemy extends cc.Component {
 
     spaceship: Spaceship;
 
@@ -17,16 +16,16 @@ export default class Player extends cc.Component {
     }
 
     async start() {
+        this.spaceship.Move(new cc.Vec2(0, -1));
+
+        let self = this;
         while (true) {
-            this.spaceship.Shot(this.node);
+            this.node.children.forEach((shotPosition: cc.Node) => {
+                self.spaceship.Shot(shotPosition);
+            });
             await Sync.wait(this.spaceship.shotDelay);
         }
     }
 
-    update(dt) {
-        let x: number = Input.GetAxisRawHorizon();
-        let y: number = Input.GetAxisRawVertical();
-        let direction: cc.Vec2 = new cc.Vec2(x, y);
-        this.spaceship.Move(direction);
-    }
+    // update (dt) {}
 }
