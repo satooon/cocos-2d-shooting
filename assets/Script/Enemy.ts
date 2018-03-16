@@ -24,6 +24,9 @@ export default class Enemy extends cc.Component {
 
         let self = this;
         while (true) {
+            if (this.node == null) {
+                break;
+            }
             this.node.children.forEach((shotPosition: cc.Node) => {
                 self.spaceship.Shot(shotPosition);
             });
@@ -32,4 +35,14 @@ export default class Enemy extends cc.Component {
     }
 
     // update (dt) {}
+
+    onCollisionEnter(other: cc.Collider, self: cc.Collider) {
+        if (!other.name.match("PlayerBullet")) {
+            return;
+        }
+
+        other.node.destroy();
+        this.spaceship.Explosion();
+        this.node.removeFromParent();
+    }
 }

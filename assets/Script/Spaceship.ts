@@ -43,15 +43,15 @@ export default class Spaceship extends cc.Component {
 
     // update (dt) {}
 
-    // onCollisionEnter(other, self) {
+    // onCollisionEnter(other: cc.Collider, self: cc.Collider) {
     //     console.log('on collision enter', other, self);
     // }
     //
-    // onCollisionStay(other, self) {
+    // onCollisionStay(other: cc.Collider, self: cc.Collider) {
     //     console.log('on collision stay', other, self);
     // }
     //
-    // onCollisionExit(other, self) {
+    // onCollisionExit(other: cc.Collider, self: cc.Collider) {
     //     console.log('on collision exit', other, self);
     // }
 }

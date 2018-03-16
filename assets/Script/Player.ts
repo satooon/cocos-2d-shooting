@@ -34,11 +34,12 @@ export default class Player extends cc.Component {
     }
 
     onCollisionEnter(other: cc.Collider, self: cc.Collider) {
-        if (other.node.name.match("Player")) {
+        if (other.node.name.match("(Player|DestroyArea)")) {
             return;
         }
+
         other.node.destroy();
         this.spaceship.Explosion();
-        this.node.destroy();
+        this.node.removeFromParent();
     }
 }
