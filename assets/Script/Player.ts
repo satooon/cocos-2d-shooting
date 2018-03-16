@@ -18,6 +18,9 @@ export default class Player extends cc.Component {
 
     async start() {
         while (true) {
+            if (this.spaceship == null) {
+                break;
+            }
             this.spaceship.Shot(this.node);
             await Sync.wait(this.spaceship.shotDelay);
         }
@@ -28,5 +31,14 @@ export default class Player extends cc.Component {
         let y: number = Input.GetAxisRawVertical();
         let direction: cc.Vec2 = new cc.Vec2(x, y);
         this.spaceship.Move(direction);
+    }
+
+    onCollisionEnter(other: cc.Collider, self: cc.Collider) {
+        if (other.node.name.match("Player")) {
+            return;
+        }
+        other.node.destroy();
+        this.spaceship.Explosion();
+        this.node.destroy();
     }
 }

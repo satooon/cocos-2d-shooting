@@ -2,6 +2,7 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 @cc._decorator.requireComponent(cc.RigidBody)
+@cc._decorator.requireComponent(cc.BoxCollider)
 export default class Spaceship extends cc.Component {
 
     @property
@@ -10,8 +11,17 @@ export default class Spaceship extends cc.Component {
     shotDelay: number = 500;
     @property(cc.Prefab)
     bullet: cc.Prefab = null;
+    @property(cc.Prefab)
+    explosion: cc.Prefab = null;
     @property
     canShot: boolean = false;
+
+    public Explosion() {
+        let explosion = cc.instantiate(this.explosion);
+        this.node.parent.addChild(explosion);
+        explosion.position = this.node.position;
+        explosion.rotation = 0;
+    }
 
     public Shot(origin: cc.Node) {
         let bullet = cc.instantiate(this.bullet);
@@ -28,8 +38,20 @@ export default class Spaceship extends cc.Component {
 
     // onLoad () {}
 
-    start() {
-    }
+    // start() {
+    // }
 
     // update (dt) {}
+
+    // onCollisionEnter(other, self) {
+    //     console.log('on collision enter', other, self);
+    // }
+    //
+    // onCollisionStay(other, self) {
+    //     console.log('on collision stay', other, self);
+    // }
+    //
+    // onCollisionExit(other, self) {
+    //     console.log('on collision exit', other, self);
+    // }
 }
